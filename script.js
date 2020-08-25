@@ -27,6 +27,7 @@ console.log("Working");
 
 
 
+
 //When user clicks search...event listener for click 
 searchButton.click(function() {
 //current weather conditions 
@@ -38,7 +39,14 @@ var currentW = "http://api.openweathermap.org/data/2.5/weather?q=" + citySearch 
 console.log(currentW);
 
 var fiveDayW = "http://api.openweathermap.org/data/2.5/forecast?q=" + citySearch + "&appid=9f0120827a50e9a11f1c94d939f4dbfc&units=imperial"; 
+
+
+
+
 console.log(fiveDayW);
+
+
+        
 
     $.ajax({
         url: currentW, 
@@ -48,23 +56,60 @@ console.log(fiveDayW);
 
         console.log(response);
 
-       
+        //Display Current City
+        var cCity = $(".current-city");
+
+        var currentCity = $("<h3>").text(response.name) 
+        console.log(currentCity);
+
+        cCity.append(currentCity);
+        
+    
+
+        //Display Current Date 
+        var currentDate = moment().format('L')
+        console.log(currentDate);
+
+        var cDate = $(".date").text(currentDate);
+
+        // cDate.append(currentDate);
+
+        
+
+        //Generating Weather Icon 
+        var icons = response.weather[0].icon;
+        console.log(icons);
+
+
+        var weatherIcon = "http://openweathermap.org/img/wn/" + icons + ".png"
+        var wi = $(".weather-icon").attr('src', weatherIcon);
+
 
         var cWeather = $("#current-weather"); 
 
-        var currentCity = $("<p>").text(response.name + response.dt + response.weather.icon);
-        console.log(currentCity);
         var currentTemp = $("<p>").text("Current Temperature: " + response.main.temp);
         console.log(currentTemp);
         var currentHum = $("<p>").text("Current Humidity: " + response.main.humidity);
         console.log(currentHum);
         var windSpeed = $("<p>").text("Wind Speed: " + response.wind.speed);
-
-        // var uvIndex = $("<td>").text(response.)
-        cWeather.append(currentCity, currentTemp, currentHum, windSpeed); 
-        // $("#current-weather").append(cWeather);
+        cWeather.append(currentTemp, currentHum, windSpeed); 
+        
+        //UV Index 
+       
         
 
+        var uvIndex = `http://api.openweathermap.org/data/2.5/uvi?appid=9f0120827a50e9a11f1c94d939f4dbfc&lat=${response.coord.lat}&lon=${response.coord.lon}`;
+        console.log(uvIndex);
+
+        $.ajax({
+            url: uvIndex, 
+            method: "GET"
+        }).then(function(response) {
+
+            var currentUV = $("<p>").text("UV Index: " + response.value);
+            cWeather.append(currentUV);
+
+        });    
     });
     
 
