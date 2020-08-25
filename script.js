@@ -46,7 +46,8 @@ var userCity = 0;
 //When user clicks search...event listener for click 
 searchButton.click(function() {
 
-
+$("h1").addClass("hide");
+$("h5").removeClass("hide");
 
 
 //current weather conditions 
@@ -65,7 +66,7 @@ var fiveDayW = "http://api.openweathermap.org/data/2.5/forecast?q=" + citySearch
 console.log(fiveDayW);
 
 
-        
+    //conditional if for blank search, else for search   
     if (citySearch === "") {
         return;
 
@@ -151,7 +152,19 @@ console.log(fiveDayW);
     });
     }
     //5 day forecast 
+    // $.ajax({
+    //     url: fiveDayW,
+    //     method: "GET"
+    // }).then(function (response) {
 
+
+
+
+    // })
+
+
+
+    // });
 
 
 }); 
