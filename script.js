@@ -16,15 +16,11 @@
 
 
 
-//API Calls for current weather and 5 day forecast 
-
-
-
 //Creating Search button variable 
 var searchButton = $(".search-button");
 console.log("Working");
 
-//loop to append html upon refresh
+//loop to append local storage html upon refresh
 for (var i = 0; i < localStorage.length; i++) {
 
     var cityStorage = localStorage.getItem(i);
@@ -46,24 +42,23 @@ var userCity = 0;
 //When user clicks search...event listener for click 
 searchButton.click(function() {
 
-$("h1").addClass("hide");
-$("h5").removeClass("hide");
-
-
-//current weather conditions 
-//var for city search value to insert into api call 
-var citySearch = $(".citySearch").val();
-console.log(citySearch);
-
-var currentW = "http://api.openweathermap.org/data/2.5/weather?q=" + citySearch + "&appid=9f0120827a50e9a11f1c94d939f4dbfc&units=imperial";
-console.log(currentW);
-
-var fiveDayW = "http://api.openweathermap.org/data/2.5/forecast?q=" + citySearch + "&appid=9f0120827a50e9a11f1c94d939f4dbfc&units=imperial"; 
+    $("h1").addClass("hide");
+    $("h5").removeClass("hide");
 
 
 
+    //current weather conditions 
+    //var for city search value to insert into api call
+    var citySearch = $(".citySearch").val();
+    console.log(citySearch);
 
-console.log(fiveDayW);
+
+    //API Calls for current weather and 5 day forecast 
+    var currentW = "http://api.openweathermap.org/data/2.5/weather?q=" + citySearch + "&appid=9f0120827a50e9a11f1c94d939f4dbfc&units=imperial";
+    console.log(currentW);
+
+    var fiveDayW = "http://api.openweathermap.org/data/2.5/forecast?q=" + citySearch + "&appid=9f0120827a50e9a11f1c94d939f4dbfc&units=imperial"; 
+    console.log(fiveDayW);
 
 
     //conditional if for blank search, else for search   
@@ -79,8 +74,6 @@ console.log(fiveDayW);
         console.log(currentW);
 
         console.log(response);
-
-        
 
         
 
@@ -101,7 +94,10 @@ console.log(fiveDayW);
         //Display Current City
         var cCity = $(".current-city");
 
-        var currentCity = $("<h3>").text(response.name) 
+        var currentCity = $("<h3>").text(response.name); 
+
+        // only way I could find to clear
+        cCity.empty();
         console.log(currentCity);
 
         cCity.append(currentCity);
@@ -112,28 +108,35 @@ console.log(fiveDayW);
         var currentDate = moment().format('L')
         console.log(currentDate);
 
-        var cDate = $(".date").text(currentDate);
-
-        // cDate.append(currentDate);
-
         
 
+        var cDate = $(".date").text(currentDate);
+        
+        
+
+        
         //Generating Weather Icon 
         var icons = response.weather[0].icon;
         console.log(icons);
 
 
         var weatherIcon = "http://openweathermap.org/img/wn/" + icons + ".png"
+
         var wi = $(".weather-icon").attr('src', weatherIcon);
 
-
+        
+        //Current Weather Temp, Humidity, Wind Speed Append
         var cWeather = $("#current-weather"); 
 
+        cWeather.empty();
         var currentTemp = $("<p>").text("Current Temperature: " + response.main.temp + " °F");
         console.log(currentTemp);
+        
         var currentHum = $("<p>").text("Current Humidity: " + response.main.humidity + "%");
         console.log(currentHum);
+        
         var windSpeed = $("<p>").text("Wind Speed: " + response.wind.speed + "mph");
+        
         cWeather.append(currentTemp, currentHum, windSpeed); 
         
         //UV Index 
@@ -148,23 +151,50 @@ console.log(fiveDayW);
             var currentUV = $("<p>").text("UV Index: " + response.value);
             cWeather.append(currentUV);
 
-        });    
+             
+        });   
     });
     }
+
     //5 day forecast 
-    // $.ajax({
-    //     url: fiveDayW,
-    //     method: "GET"
-    // }).then(function (response) {
+    $.ajax({
+        url: fiveDayW,
+        method: "GET"
+    }).then(function (response) {
+
+        console.log(fiveDayW);
+
+        //Day 1
+        var fiveDay1 = $(".day-one"); 
+
+        fiveDay1.empty();
+        var dayOneTemp = $("<p>").text("Current Temperature: " + response.list[0].main.temp + " °F");
+        console.log(dayOneTemp);
+        
+        var dayOneHum = $("<p>").text("Current Humidity: " + response.list[0].main.humidity + "%");
+        console.log(dayOneHum);
+        
+        
+        fiveDay1.append(dayOneTemp, dayOneHum); 
+
+        //Day 2
+        var fiveDay2 = $(".day-two"); 
+
+        fiveDay2.empty();
+        var dayTwoTemp = $("<p>").text("Current Temperature: " + response.list[1].main.temp + " °F");
+        console.log(dayTwoTemp);
+        
+        var dayTwoHum = $("<p>").text("Current Humidity: " + response.list[1].main.humidity + "%");
+        console.log(dayTwoHum);
+        
+        
+        fiveDay2.append(dayTwoTemp, dayTwoHum); 
+
+    });
 
 
 
-
-    // })
-
-
-
-    // });
+ 
 
 
 }); 
