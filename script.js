@@ -33,9 +33,9 @@ searchButton.click(function() {
     var citySearch = $(".citySearch").val();
 
     //API Calls for current weather and 5 day forecast 
-    var currentW = "http://api.openweathermap.org/data/2.5/weather?q=" + citySearch + "&appid=9f0120827a50e9a11f1c94d939f4dbfc&units=imperial";
+    var currentW = "https://api.openweathermap.org/data/2.5/weather?q=" + citySearch + "&appid=9f0120827a50e9a11f1c94d939f4dbfc&units=imperial";
 
-    var fiveDayW = "http://api.openweathermap.org/data/2.5/forecast?q=" + citySearch + "&appid=9f0120827a50e9a11f1c94d939f4dbfc&units=imperial"; 
+    var fiveDayW = "https://api.openweathermap.org/data/2.5/forecast?q=" + citySearch + "&appid=9f0120827a50e9a11f1c94d939f4dbfc&units=imperial"; 
     
 
     //conditional if for blank search, else for search   
@@ -87,7 +87,7 @@ searchButton.click(function() {
         //Generating Weather Icon 
         var icons = response.weather[0].icon;
 
-        var weatherIcon = "http://openweathermap.org/img/wn/" + icons + ".png"
+        var weatherIcon = "https://openweathermap.org/img/wn/" + icons + ".png"
 
         var wi = $(".weather-icon").attr('src', weatherIcon);
 
@@ -106,7 +106,7 @@ searchButton.click(function() {
         cWeather.append(currentTemp, currentHum, windSpeed); 
         
         //UV Index + string interpo for response value
-        var uvIndex = `http://api.openweathermap.org/data/2.5/uvi?appid=9f0120827a50e9a11f1c94d939f4dbfc&lat=${response.coord.lat}&lon=${response.coord.lon}`;
+        var uvIndex = `https://api.openweathermap.org/data/2.5/uvi?appid=9f0120827a50e9a11f1c94d939f4dbfc&lat=${response.coord.lat}&lon=${response.coord.lon}`;
 
         //UV Call 
         $.ajax({
@@ -148,7 +148,7 @@ searchButton.click(function() {
 
         //Icon for Future Date
         var dayOneIcons = response.list[i].weather[0].icon;
-        var weatherIcon = "http://openweathermap.org/img/wn/" + dayOneIcons + ".png"
+        var weatherIcon = "https://openweathermap.org/img/wn/" + dayOneIcons + ".png"
         var oneIcon = $(".day-one-icon").attr('src', weatherIcon);
 
         //Creating var and clearing for append
@@ -169,7 +169,7 @@ searchButton.click(function() {
         var dayTwo = $(".day-two-date").text(dayTwoDate);
 
         var dayTwoIcons = response.list[8].weather[0].icon;
-        var weatherIcon2 = "http://openweathermap.org/img/wn/" + dayTwoIcons + ".png"
+        var weatherIcon2 = "https://openweathermap.org/img/wn/" + dayTwoIcons + ".png"
         var twoIcon = $(".day-two-icon").attr('src', weatherIcon2);
 
         var fiveDay2 = $(".day-two"); 
@@ -187,7 +187,7 @@ searchButton.click(function() {
         var dayThree = $(".day-three-date").text(dayThreeDate);
 
         var dayThreeIcons = response.list[16].weather[0].icon;
-        var weatherIcon3 = "http://openweathermap.org/img/wn/" + dayThreeIcons + ".png"
+        var weatherIcon3 = "https://openweathermap.org/img/wn/" + dayThreeIcons + ".png"
         var threeIcon = $(".day-three-icon").attr('src', weatherIcon3);
 
         var fiveDay3 = $(".day-three"); 
@@ -205,7 +205,7 @@ searchButton.click(function() {
         var dayFour = $(".day-four-date").text(dayFourDate);
 
         var dayFourIcons = response.list[16].weather[0].icon;
-        var weatherIcon4 = "http://openweathermap.org/img/wn/" + dayFourIcons + ".png"
+        var weatherIcon4 = "https://openweathermap.org/img/wn/" + dayFourIcons + ".png"
         var fourIcon = $(".day-four-icon").attr('src', weatherIcon4);
         
         var fiveDay4 = $(".day-four"); 
@@ -223,7 +223,7 @@ searchButton.click(function() {
         var dayFive = $(".day-five-date").text(dayFiveDate);
 
         var dayFiveIcons = response.list[24].weather[0].icon;
-        var weatherIcon5 = "http://openweathermap.org/img/wn/" + dayFiveIcons + ".png"
+        var weatherIcon5 = "https://openweathermap.org/img/wn/" + dayFiveIcons + ".png"
         var fiveIcon = $(".day-five-icon").attr('src', weatherIcon5);
          
         var fiveDay5 = $(".day-five"); 
