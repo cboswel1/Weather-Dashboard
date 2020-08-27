@@ -6,6 +6,7 @@
 .jumbotron {
     background-image: url("Assets/kisspng-elk-grove-village-skyline-chicago-loop-clip-art-5af80516b5fa42.2782947215262036707454.png"); 
     background-size: cover;
+    background-repeat: no-repeat;
 }
 
 ul {
@@ -14,4 +15,17 @@ ul {
 
 .hide {
     display: none;
+}
+
+.card {
+    background-color: #ebf6f5;
+}
+
+.date {
+    font-weight: bold;
+}
+
+.icon {
+    max-width: 25%;
+    height: auto;
 }
