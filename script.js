@@ -51,7 +51,6 @@ searchButton.click(function() {
     
         //appending city name search to ul 
         var cityChoice = $(".city-list");
-
         var showCity = $("<li>" + response.name + "</li>");
 
         cityChoice.append(showCity);
@@ -65,7 +64,6 @@ searchButton.click(function() {
 
         //Display Current City
         var cCity = $(".current-city");
-
         var currentCity = $("<h3>").text(response.name); 
 
         // only way I could find to clear
@@ -75,21 +73,19 @@ searchButton.click(function() {
         cCity.append(currentCity);
         
     
-
         //Display Current Date 
         var currentDate = moment().format('L')
         
         var cDate = $(".date").text(currentDate);
         
-        
 
-        
         //Generating Weather Icon 
         var icons = response.weather[0].icon;
 
         var weatherIcon = "https://openweathermap.org/img/wn/" + icons + ".png"
 
-        var wi = $(".weather-icon").attr('src', weatherIcon);
+        var wi = $(".weather-icon").attr("src", weatherIcon);
+        var wi = $(".weather-icon").attr("alt", "current weather icon");
 
         
         //Current Weather Temp, Humidity, Wind Speed Append
@@ -98,15 +94,15 @@ searchButton.click(function() {
         cWeather.empty();
 
         var currentTemp = $("<p>").text("Current Temperature: " + response.main.temp + " °F");
-        
         var currentHum = $("<p>").text("Current Humidity: " + response.main.humidity + "%");
-        
         var windSpeed = $("<p>").text("Wind Speed: " + response.wind.speed + "mph");
-        
+
         cWeather.append(currentTemp, currentHum, windSpeed); 
+
         
         //UV Index + string interpo for response value
         var uvIndex = `https://api.openweathermap.org/data/2.5/uvi?appid=9f0120827a50e9a11f1c94d939f4dbfc&lat=${response.coord.lat}&lon=${response.coord.lon}`;
+
 
         //UV Call 
         $.ajax({
@@ -120,6 +116,7 @@ searchButton.click(function() {
 
             cWeather.append(currentUV);
 
+            // UV conditional based on severity of UV
             if (response.value <= 2) {
                 $(currentUV).addClass("favorable");
             } else if (response.value <= 7) {
@@ -132,6 +129,7 @@ searchButton.click(function() {
          
     });
     }
+
 
     //5 day forecast call
     $.ajax({
@@ -235,12 +233,6 @@ searchButton.click(function() {
         fiveDay5.append(dayFiveTemp, dayFiveHum); 
 
     });
-
-
-
- 
-
-
 }); 
 
 

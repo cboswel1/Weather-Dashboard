@@ -29,6 +29,8 @@ ul {
     height: auto;
 }
 
+/* UV conditions */
+
 .favorable {
     background-color: green;
 }
