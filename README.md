@@ -5,7 +5,7 @@ The Weather Dashboard is an interactive browser application that allows a user t
 
 ## Preview 
 
-![Weather Dashboard Scheduler Preview]()
+![Weather Dashboard Scheduler Preview](https://github.com/cboswel1/Weather-Dashboard/blob/master/Assets/Screen%20Shot%202020-08-27%20at%205.04.33%20PM.png?raw=true)
 
 ## How Does It Work
 
