@@ -29,11 +29,11 @@
     </header>
 
     <!--Search and history-->
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col col-4 bg-light">
-          <h4 class="pl-3">Search for a City:</h4>
-          <div class="input-group mb-3 col-10">
+    <div class="container-fluid col-12">
+      <div class="row bg-light">
+        <div class="bg-light">
+          <h4 class="pl-3 mt-2">Search for a City:</h4>
+          <div class="input-group ml-3">
             <input
               type="text"
               class="form-control citySearch"
@@ -54,11 +54,12 @@
           <h4 class="mt-5 ml-3">Recent Searches:</h4>
           <ul class="city-list"></ul>
         </div>
-
+        <div class="col-1"></div>
         <!-- Current Forecast-->
       
-        <div class="col col-8 mt-2 bg-white border">
-          <div class="jumbotron jumbotron-fluid">
+        <!-- <div class="col mt-2 bgcolor border"> -->
+          <div class="jumbotron jumbotron-fluid col-8 border pl-3
+          ">
             <h2 class="current-header">Current Weather:</h2>
             <div class="row">
               <div class="current-city pt-2 pl-3"></div>
@@ -67,11 +68,12 @@
             </div>
             <div id="current-weather"></div>
           </div>
-          <div class="col-4"></div>
-        </div>
+          
+        <!-- </div> -->
           <!-- 5 day forecast -->
-          <h5 class="card-title hide pl-4">5 Day Forecast</h5>
+          
       <div class="container col-12">
+        <h5 class="card-title hide pl-4">5 Day Forecast</h5>
         <div class="row card-deck justify-content-md-start">
             <div class="card hide">
               <div class="day-one-date date"></div>
