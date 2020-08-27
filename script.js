@@ -23,7 +23,7 @@ var userCity = 0;
 //When user clicks search...event listener for click 
 searchButton.click(function() {
 
-    $("h1").addClass("hide");
+    $("h2").addClass("hide");
     $("h5").removeClass("hide");
     $(".card").removeClass("hide");
 
@@ -115,9 +115,21 @@ searchButton.click(function() {
         }).then(function(response) {
 
             var currentUV = $("<p>").text("UV Index: " + response.value);
+
+           $(currentUV).addClass("col-2");
+
             cWeather.append(currentUV);
+
+            if (response.value <= 2) {
+                $(currentUV).addClass("favorable");
+            } else if (response.value <= 7) {
+                $(currentUV).addClass("moderate");
+            } else if (response.value <= 13) {
+                $(currentUV).addClass("severe");
+            };
  
-        });   
+        }); 
+         
     });
     }
 

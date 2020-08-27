@@ -1,99 +1,127 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="Stylesheet" href="style.css"> 
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link rel="Stylesheet" href="style.css" />
 
     <title>Weather Dashboard</title>
   </head>
   <body>
-    <div class="container col-12">
-        <div class="row bg-secondary">
-          <div class="col bg-secondary text-center">
-            <h1 class="text-light">Weather Dashboard</h1>
-          </div>
+    <header class="container col-12">
+      <div class="row bg-secondary">
+        <div class="col bg-secondary text-center">
+          <h1 class="text-light">Weather Dashboard</h1>
         </div>
-    </div>
+      </div>
+    </header>
 
-    <div class="row">
+    <!--Search and history-->
+    <div class="container-fluid">
+      <div class="row">
         <div class="col col-4 bg-light">
-          <p class="pl-3">Search for a City: </p>
+          <h4 class="pl-3">Search for a City:</h4>
           <div class="input-group mb-3 col-10">
-            <input type="text" class="form-control citySearch" placeholder="City Name" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <input
+              type="text"
+              class="form-control citySearch"
+              placeholder="City Name"
+              aria-label="Recipient's username"
+              aria-describedby="button-addon2"
+            />
             <div class="input-group-append">
-              <button class="btn btn-outline-secondary search-button" type="button" id="button-addon2">Button</button>
+              <button
+                class="btn btn-outline-secondary search-button"
+                type="button"
+                id="button-addon2"
+              >
+              Search
+              </button>
             </div>
           </div>
+          <h4 class="mt-5 ml-3">Recent Searches:</h4>
           <ul class="city-list"></ul>
         </div>
-        
 
-
+        <!-- Current Forecast-->
+      
         <div class="col col-8 mt-2 bg-white border">
-            <div class="jumbotron bg-white">
-              <h1 class="current-header">Current Weather:</h1>
-                <div class="row">
-                  <div class="current-city pt-2 pl-3"></div><div class="date p-3"></div><img class="weather-icon">
-                </div>
-                  <div id="current-weather"></div>
-            </div>  
-            <div class="col-4"></div>
-            <h5 class="card-title hide pl-4">5 Day Forecast</h5>
-            <div class="card-deck pl-4">
-                <div class="card hide">
-                  <div class="day-one-date date"></div>
-                  <img class="day-one-icon icon">
-                  <div class="card-body day-one">
-                    
-                  </div>
-                </div>
-                <div class="card hide">
-                  <div class="day-two-date date"></div>
-                  <img class="day-two-icon icon">
-                  <div class="card-body day-two">
-                    <h5 class="card-title hide"></h5>
-                  </div>
-                </div>
-                <div class="card hide">
-                  <div class="day-three-date date"></div>
-                  <img class="day-three-icon icon">
-                  <div class="card-body day-three">
-                    <h5 class="card-title hide"></h5>
-                  </div>
-                </div>
-                <div class="card hide">
-                  <div class="day-four-date date"></div>
-                  <img class="day-four-icon icon">
-                  <div class="card-body day-four">
-                    <h5 class="card-title hide"></h5>
-                  </div>
-                </div>
-                <div class="card hide">
-                  <div class="day-five-date date"></div>
-                  <img class="day-five-icon icon">
-                  <div class="card-body day-five">
-                    <h5 class="card-title hide"></h5>
-                  </div>
-                </div>
-                
-              
-        
-           </div> 
+          <div class="jumbotron jumbotron-fluid">
+            <h2 class="current-header">Current Weather:</h2>
+            <div class="row">
+              <div class="current-city pt-2 pl-3"></div>
+              <div class="date p-3"></div>
+              <img class="weather-icon" />
+            </div>
+            <div id="current-weather"></div>
+          </div>
+          <div class="col-4"></div>
+        </div>
+          <!-- 5 day forecast -->
+          <h5 class="card-title hide pl-4">5 Day Forecast</h5>
+      <div class="container col-12">
+        <div class="row card-deck justify-content-md-start">
+            <div class="card hide">
+              <div class="day-one-date date"></div>
+              <img class="day-one-icon icon" />
+              <div class="card-body day-one"></div>
+            </div>
+            <div class="card hide">
+              <div class="day-two-date date"></div>
+              <img class="day-two-icon icon" />
+              <div class="card-body day-two"></div>
+            </div>
+            <div class="card hide">
+              <div class="day-three-date date"></div>
+              <img class="day-three-icon icon" />
+              <div class="card-body day-three"></div>
+            </div>
+            <div class="card hide">
+              <div class="day-four-date date"></div>
+              <img class="day-four-icon icon" />
+              <div class="card-body day-four"></div>
+            </div>
+            <div class="card hide">
+              <div class="day-five-date date"></div>
+              <img class="day-five-icon icon" />
+              <div class="card-body day-five"></div>
+            </div>
+          </div>
         </div>
         
-
+      </div>
+    </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    <script src ="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="script.js"></script>
   </body>
