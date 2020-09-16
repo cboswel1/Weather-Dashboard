@@ -2,6 +2,15 @@
 
 The Weather Dashboard is an interactive browser application that allows a user to search for a particular city, and upon the results, be presented with a current forecast, as well as a 5 day future outlook of the forecast. The user will also be able to store their search history upon refresh. 
 
+## Built With 
+
+[jQuery](https://api.jquery.com/)
+
+[Open Weather API](https://openweathermap.org/)
+
+[moment.js](https://momentjs.com/)
+
+[bootstrap](https://getbootstrap.com/)
 
 ## Preview 
 
